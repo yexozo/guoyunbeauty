@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <!-- 加载样式及META信息 -->
+    {include file="common/test" /}
+    
+    <style>
+    
+    html,body {
+        height:100%;
+        transition: all 0.5s ease; 
+    }
+    
+    #zhuti {
+      scroll-behavior: instant;  /* 禁止平缓过度 相反参数 smooth */
+    }
+    
+/*
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: #000;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}*/
+    .text-muted {
+        color: #dee2e6!important;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+    
+    
+    @-webkit-keyframes bounce-down {
+        25% {
+            -webkit-transform: translateY(0);
+        }
+        100% {
+            -webkit-transform: translateY(3px);
+        }
+    }
+    
+    .animate-bounce-down1{
+        -webkit-animation: bounce-down 1.7s linear infinite;
+        animation: bounce-down 1.7s linear infinite;
+       
+    }
+    
+    /** 暗到明 **/
+    @-webkit-keyframes opacity_1 {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .opacity_1{
+        -webkit-animation: opacity_1 1.7s linear infinite;
+        animation: opacity_1 1.7s linear infinite;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    .logo_y{
+        -webkit-animation: opacity_1 0.3s linear infinite;
+        animation: opacity_1 0.3s linear infinite;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    
+    
+    
+    
+    
+    /** 明到暗 **/
+    @-webkit-keyframes opacity_0 {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    .opacity_0{
+        -webkit-animation: opacity_0 1.7s linear infinite;
+        animation: opacity_0 1.7s linear infinite;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    .logo_n{
+        -webkit-animation: opacity_0 0.1s linear infinite;
+        animation: opacity_0 0.3s linear infinite;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    
+    
+    /** 无到有 **/
+    @-webkit-keyframes has_1 {
+        0% {
+            opacity: 0;
+            transform:translate(0px,-10vh)
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .has_1{
+        -webkit-animation: has_1 1.7s infinite;
+        animation: has_1 1.7s infinite;
+        
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    /** 有到无 **/
+    @-webkit-keyframes has_0 {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    .has_0{
+        -webkit-animation: has_0 1.7s linear infinite;
+        animation: has_0 1.7s linear infinite;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    
+    
+        
+    </style>
+</head>
+
+<body>
+
+<div class="fixed-top" style="transition-timing-function:ease-in-out;">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4" style="background: rgba(0,0,0,0.8)!important;font-size: .8rem;">
+            <h5 class="text-white h4">GuoyunBeauty.</h5>
+            <span class="text-muted">国韵，源于岭南，探寻自然功效的养生护肤品牌</span>
+        
+            <div style="">
+                <div class="text-muted" style="margin: 10px 0;color: black;font-weight: bold;">公司简介：</div>
+                <div class="text-muted" style="color: #000">“以自然之道，养自然之身”</div>
+                <div class="text-muted" style="color: #000">国韵具备专业线护理22年的研发经验，基于优质东方原料的生活方式</div>
+                <div class="text-muted" style="color: #000">思考如何在养肤护肤的实践中实现可持续价值</div>
+                <div class="text-muted" style="color: #000">我们以自然为源，以养生为本，以科学为证</div>
+                <div class="text-muted" style="color: #000">连接传统智慧与现代科学，打造更适合东方人的护肤方剂，滋养肌肤，更丰盈身心</div>
+                <div class="text-muted" style="margin: 10px 0;color: black;font-weight: bold;">企业愿景：</div>
+                <div class="text-muted" style="color: #000">做国人信赖产品  创中华民族品牌</div>
+                <div class="text-muted" style="margin: 10px 0;color: black;font-weight: bold;">企业使命：</div>
+                <div class="text-muted" style="color: #000">让健康来的更简单</div>
+            </div>
+        
+        </div>
+    </div>
+    <nav id="tarb1" class="navbar navbar-dark bg-dark" style="background-color: transparent!important;">
+        <div class="container-fluid">
+            <button id="menu_btn" rel="0" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+  
+    <nav id="tarb2" class="navbar navbar-expand-lg navbar-light bg-light" style="display:none;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar scroll</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+  
+  
+</div>
+
+<div id="zhuti">
+    <main>
+        <!--
+        <div style="position: absolute;top:10%;left:0;z-index: 9999;background-color: red;">Scroll Offset: <span id="scrollOffsetDisplay">0</span></div>-->
+        <div id="logo" style="width:10vw;height:10vw;position:fixed;top:3%;left:45%;text-align:center;line-height:5vw;z-index: 999;">
+            <img style="width:100%;" src="__CDN__/assets/img/index/index/logo.png" />    
+        </div>
+    	<div data-scroll>
+    	    
+    	        <div style="width: 100%;position:relative;">
+                    <img style="width:100%;" src="__CDN__/assets/img/index/index/网页_01.jpg" />
+                    <div id="t1" style="position:absolute;bottom:10%;width:52%;left:24%;height:100px;text-align:center;line-height:100px;transform: translate(0px, 0px);transition-timing-function:ease-in-out;"><img style="width:100%;" src="__CDN__/assets/img/index/index/title_2.png" /></div>
+                </div>
+            
+                <div id="t2" style="width: 100%;position:relative;">
+                    <img style="width:100%;" src="__CDN__/assets/img/index/index/网页_02.jpg" />
+                    <img id="t2_t1" style="width:30%;position:absolute;top:12%;left:8%;z-index:1;" src="__CDN__/assets/img/index/index/t2_t1.png" />
+                    <img id="t2_t2" style="width:33%;position:absolute;top:29%;left:10%;z-index:1;" src="__CDN__/assets/img/index/index/t2_t2.png" />
+                    <img id="t2_t3" style="width:4.7%;position:absolute;top:58.7%;right:22%;z-index:1;" src="__CDN__/assets/img/index/index/t2_t5.png" />
+                    <img id="t2_t4" style="width:4.7%;position:absolute;top:63%;right:31%;z-index:1;" src="__CDN__/assets/img/index/index/t2_t6.png" />
+                </div>
+                <div id="t3" style="width: 100%;height:80vh;background-color: black;position:relative;top:-80vw;z-index: -1;display: flex;align-items: center;justify-content: center;">
+                    <img id="t3_img_1" style="margin-top:5vw;" src="__CDN__/assets/img/index/index/网页_03.jpg" />
+                    <img id="t3_t1" style="position:absolute;opacity:0;" src="__CDN__/assets/img/index/index/t3_t2.png" />
+                </div>
+    	        <div id="t4" style="width: 100%;position:relative;">
+                    <img style="width:100%;" src="__CDN__/assets/img/index/index/网页_04.jpg" />
+                    
+                    <img class="t4_t" id="t4_t1" style="width:4.3%;position:absolute;top:6%;left:13%;z-index:1;opacity:0;-webkit-animation-delay: 0.3s;" src="__CDN__/assets/img/index/index/t4_t1.png" />
+                    <img class="t4_t" id="t4_t2" style="width:4.3%;position:absolute;top:10%;left:21%;z-index:1;opacity:0;" src="__CDN__/assets/img/index/index/t4_t2.png" />
+                    <img class="t4_t" id="t4_t3" style="width:3%;position:absolute;top:10%;right:6%;z-index:1;opacity:0;-webkit-animation-delay: 0.6s;" src="__CDN__/assets/img/index/index/t4_t3.png" />
+                    <img id="t4_t4" style="width:26%;position:absolute;top:59%;right:12%;z-index:1;opacity:0;-webkit-animation-delay: 1s;" src="__CDN__/assets/img/index/index/t4_t4.png" />
+                    
+                    <div id="" style="z-index: 99;width: 100%;color: aliceblue;background-color:#fff;text-align: center;padding: 20px 10px;font-size: .8rem;">
+                        <div style="color: #868686;">国韵健康服务热线：0755-26657091 广东国韵健康有限公司地址：广东省深圳市南山区侨城坊8栋9楼</div>
+                        <div><a style="color: #868686;" href="https://beian.miit.gov.cn">粤ICP备2023088987号-1</a></div>
+                    </div>
+                    <div id="dibu"></div>
+                </div>
+                
+    
+    	</div>
+    </main>
+</div>
+
+<script src="https://guoyunstore.com/weixin/activity/points%20park/test/imagesloaded.pkgd.min.js"></script>
+<script src="https://guoyunstore.com/weixin/activity/points%20park/test/demo.js"></script>
+<script src="__CDN__/assets/js/zidingyi/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="__CDN__/assets/js/zidingyi/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script>
+
+    //点击菜单按钮
+    $('#menu_btn').click(function(){
+        var rel = $('#menu_btn').attr('rel');
+        if(rel == 0){
+            $('#menu_btn').css('background','rgba(0,0,0,0.8)')
+            $('#menu_btn').attr('rel','1');
+        }else{
+            $('#menu_btn').css('background','rgba(0,0,0,0)')
+            $('#menu_btn').attr('rel','0');
+        }
+    })
+
+
+    //根据屏幕尺寸控制图片的拉伸效果 id=t3
+    var t3_w = $('#t3').width();
+    var t3_h = $('#t3').height();
+    if(t3_w > t3_h){
+        $('#t3_img_1').css('width','100vw');
+        $('#t3_t1').css('width','47vw');
+    }else{
+        $('#t3_img_1').css('height','100vh');
+        $('#t3_t1').css('height','25vh');
+    }
+    
+    var h = $(window).height();
+    var w = $(window).width();
+    //var dibu_t = $("#dibu").offset().top;
+    //alert(w)
+
+    /*处理translate偏移引起的页面产生空白*/
+    // 获取滚动到的高度阈值
+    var dibu_t = 9999  //设置一个比较的值
+    // 获取目标元素
+
+    let lastScrollTop = 0;  //判断滑动方向 上or下
+    // 监听滚动事件
+    window.addEventListener('scroll', function() {
+        
+         let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+          if (currentScrollTop > lastScrollTop) {
+            // 向下滑动
+            console.log('向下滑动1');
+          } else {
+            // 向上滑动
+            console.log('向上滑动');
+          }
+        
+          lastScrollTop = currentScrollTop;
+        
+        
+        
+        
+        
+       
+       const thresholdHeight = dibu_t; 
+        //console.log(dibu_t)
+      // 获取当前滚动的高度
+      const currentScrollHeight = window.scrollY || document.documentElement.scrollTop;
+    
+      // 判断是否超过阈值
+      if (currentScrollHeight > thresholdHeight) {
+        // 如果超过阈值，阻止默认的滚动行为
+        console.log(thresholdHeight)
+        window.scrollTo(0, thresholdHeight);
+      }
+    });
+    
+    
+    
+    /*
+    window.onscroll = function() {  
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;  
+        
+         //window.scrollTo(0, scrollPosition+3);
+        
+        //console.log('Scroll position: ' + scrollPosition + 'px');  
+        
+        $('#t1').css('transform','translate(0px,'+(-scrollPosition*0.1)+'px)')
+        
+    };*/
+
+   
+   /**
+	 * demo.js
+	 */
+	{
+		// helper functions
+		const MathUtils = {
+			// map number x from range [a, b] to [c, d]
+			map: (x, a, b, c, d) => (x - a) * (d - c) / (b - a) + c,
+			// linear interpolation
+			lerp: (a, b, n) => (1 - n) * a + n * b
+		};
+
+		// body element
+		const body = document.body;
+
+		// calculate the viewport size 计算视口大小
+		let winsize;
+		const calcWinsize = () => winsize = {width: window.innerWidth, height: window.innerHeight};
+		calcWinsize();
+		// and recalculate on resize 重新计算大小
+		window.addEventListener('resize', calcWinsize);
+
+		// scroll position and update function 滚动位置和更新功能
+		let docScroll;
+		const getPageYScroll = () => docScroll = window.pageYOffset || document.documentElement.scrollTop;
+		window.addEventListener('scroll', getPageYScroll);
+
+
+		// Item
+		class Item {
+			constructor(el) {
+				// the .item element
+				this.DOM = {el: el};
+				// the inner image
+				this.DOM.image = this.DOM.el.querySelector('.item__img');
+				this.renderedStyles = {
+					// here we define which property will change as we scroll the page and the items is inside the viewport 在这里，我们定义了当滚动页面时哪个属性会改变，项目在视窗内
+					// in this case we will be translating the image on the y-axis 在这里，我们定义了当滚动页面时哪个属性会改变，项目在视窗内
+					// we interpolate between the previous and current value to achieve a smooth effect 我们在前一个值和当前值之间进行插值，以获得平滑效果
+					innerTranslationY: {
+						// interpolated value 插入值
+						previous: 0,
+						// current value 当前值
+						current: 0,
+						// amount to interpolate 插入量
+						ease: 0.1,
+						// the maximum value to translate the image is set in a CSS variable (--overflow) 翻译图像的最大值在CSS变量中设置(——overflow)
+						maxValue: parseInt(getComputedStyle(this.DOM.image).getPropertyValue('--overflow'), 10),
+						// current value setter 电流值设置器
+						// the value of the translation will be:
+						// when the item's top value (relative to the viewport) equals the window's height (items just came into the viewport) the translation = minimum value (- maximum value)
+						// when the item's top value (relative to the viewport) equals "-item's height" (item just exited the viewport) the translation = maximum value
+						//当项目的顶部值(相对于视口)等于窗口的高度(项目刚刚进入视口)，转换=最小值(-最大值)
+						//当项目的顶部值(相对于视口)等于"-项目的高度"(项目刚刚退出视口)，平移=最大值
+						setValue: () => {
+							const maxValue = this.renderedStyles.innerTranslationY.maxValue;
+							const minValue = -1 * maxValue;
+							return Math.max(Math.min(MathUtils.map(this.props.top - docScroll, winsize.height, -1 * this.props.height, minValue, maxValue), maxValue), minValue)
+
+						}
+					}
+				};
+				// set the initial values 设置初始值
+				this.update();
+				// use the IntersectionObserver API to check when the element is inside the viewport
+				// only then the element translation will be updated
+				this.observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => this.isVisible = entry.intersectionRatio > 0);
+				});
+				this.observer.observe(this.DOM.el);
+				// init/bind events
+				this.initEvents();
+			}
+			update() {
+				// gets the item's height and top (relative to the document) 获取项目的高度和顶部(相对于文档)
+				this.getSize();
+				// sets the initial value (no interpolation) 设置初始值(无插值)
+				for (const key in this.renderedStyles ) {
+					this.renderedStyles[key].current = this.renderedStyles[key].previous = this.renderedStyles[key].setValue();
+				}
+				// translate the image
+				this.layout();
+			}
+			getSize() {
+				const rect = this.DOM.el.getBoundingClientRect();
+				this.props = {
+					// item's height
+					height: rect.height,
+					// offset top relative to the document  相对于文档的偏移顶部
+					top: docScroll + rect.top
+				}
+			}
+			initEvents() {
+				window.addEventListener('resize', () => this.resize());
+			}
+			resize() {
+				// on resize rest sizes and update the translation value On调整rest大小并更新翻译值
+				this.update();
+			}
+			render() {
+				// update the current and interpolated values  更新当前和插值值
+				for (const key in this.renderedStyles ) {
+					this.renderedStyles[key].current = this.renderedStyles[key].setValue();
+					this.renderedStyles[key].previous = MathUtils.lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].ease);
+				}
+				// and translates the image
+				this.layout();
+			}
+			layout() {
+				// translates the image
+				this.DOM.image.style.transform = `translate3d(0,${this.renderedStyles.innerTranslationY.previous}px,0)`;
+			}
+		}
+
+		// SmoothScroll
+		class SmoothScroll {
+			constructor() {
+				// the <main> element
+				this.DOM = {main: document.querySelector('main')};
+				// the scrollable element
+				// we translate this element when scrolling (y-axis)
+				//可滚动元素
+				//我们在滚动(y轴)时平移这个元素
+				this.DOM.scrollable = this.DOM.main.querySelector('div[data-scroll]');
+				// the items on the page
+				this.items = [];
+				[...this.DOM.main.querySelectorAll('.content > .item')].forEach(item => this.items.push(new Item(item)));
+				// here we define which property will change as we scroll the page
+				// in this case we will be translating on the y-axis
+				// we interpolate between the previous and current value to achieve the smooth scrolling effect
+				//在这里我们定义滚动页面时哪个属性会改变
+				//在这种情况下，我们将在y轴上进行平移
+				//我们在前一个值和当前值之间进行插值，以实现平滑滚动效果
+				this.renderedStyles = {
+					translationY: {
+						// interpolated value
+						previous: 0,
+						// current value
+						current: 0,
+						// amount to interpolate
+						ease: 0.1,
+						// current value setter
+						// in this case the value of the translation will be the same like the document scroll
+						setValue: () => docScroll
+					}
+				};
+				// set the body's height
+				this.setSize();
+				// set the initial values
+				this.update();
+				// the <main> element's style needs to be modified
+				this.style();
+				// init/bind events
+				this.initEvents();
+				this.offsetChangeEvent = new Event('offsetChange');
+				// start the render loop
+				requestAnimationFrame(() => this.render());
+			}
+			update() {
+				// sets the initial value (no interpolation) - translate the scroll value
+				for (const key in this.renderedStyles ) {
+					this.renderedStyles[key].current = this.renderedStyles[key].previous = this.renderedStyles[key].setValue();
+				}
+				// translate the scrollable element
+				this.layout();
+
+			}
+			layout() {
+				// translates the scrollable element
+				this.DOM.scrollable.style.transform = `translate3d(0,${-1*this.renderedStyles.translationY.previous}px,0)`;
+				//console.log(this.renderedStyles.translationY.previous);
+				//return this.renderedStyles.translationY.previous
+			}
+			// 添加一个新的方法，返回滚动元素的偏移量
+			getScrollOffset() {
+				return -1 * this.renderedStyles.translationY.previous;
+			}
+			setSize() {
+				// set the heigh of the body in order to keep the scrollbar on the page
+				body.style.height = `${this.DOM.scrollable.scrollHeight}px`;
+			}
+			style() {
+				// the <main> needs to "stick" to the screen and not scroll
+				// for that we set it to position fixed and overflow hidden
+				this.DOM.main.style.position = 'fixed';
+				this.DOM.main.style.width = this.DOM.main.style.height = '100%';
+				this.DOM.main.style.top = this.DOM.main.style.left = 0;
+				this.DOM.main.style.overflow = 'hidden';
+			}
+			initEvents() {
+				// on resize reset the body's height
+				window.addEventListener('resize', () => this.setSize());
+			}
+
+
+
+			render() {
+				// update the current and interpolated values
+				for (const key in this.renderedStyles) {
+					this.renderedStyles[key].current = this.renderedStyles[key].setValue();
+					this.renderedStyles[key].previous = MathUtils.lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].ease);
+				}
+				// and translate the scrollable element
+				this.layout();
+
+				// 获取滚动偏移量值
+				const scrollOffset = this.getScrollOffset();
+				//console.log('Scroll Offset:', scrollOffset);
+
+				// 触发自定义事件，传递偏移量的变化
+				this.DOM.scrollable.dispatchEvent(this.offsetChangeEvent);
+
+				// for every item
+				for (const item of this.items) {
+					// if the item is inside the viewport call its render function
+					// this will update the item's inner image translation, based on the document scroll value and the item's position on the viewport
+					if (item.isVisible) {
+						item.render();
+					}
+				}
+
+				// loop..
+				requestAnimationFrame(() => this.render());
+			}
+		}
+
+		/***********************************/
+		/********** Preload stuff **********/
+
+				// Preload images
+		const preloadImages = () => {
+					return new Promise((resolve, reject) => {
+						imagesLoaded(document.querySelectorAll('.item__img'), {background: true}, resolve);
+					});
+				};
+
+        var t3_t1_opacity = 0;
+        var t4_t1_opacity = 0;
+		// And then..
+		// 在初始化 SmoothScroll 类之后获取滚动偏移量的实时变化
+		preloadImages().then(() => {
+			document.body.classList.remove('loading');
+			getPageYScroll();
+			var smoothScroll = new SmoothScroll();
+
+			// 在外部代码中监听自定义事件以获取偏移量的变化
+			smoothScroll.DOM.scrollable.addEventListener('offsetChange', (event) => {
+				const offset = smoothScroll.getScrollOffset();
+				//console.log('Scroll Offset Change:', offset);
+				//const targetElement = document.getElementById('scrollOffsetDisplay');
+                //targetElement.innerHTML = offset;
+                
+                //页面视觉差效果
+                $('#t1').css('transform','translate(0px,'+(offset*0.6)+'px)')
+                
+				$('#t2').css('transform','translate(0px,'+(offset*0.6)+'px)')	
+				$('#t2_t1').css('margin-top',(offset*0.12)+'px');	
+				$('#t2_t2').css('margin-top',(offset*0.1)+'px');
+				$('#t2_t3').css('transform','translate(0px,'+(offset*0.2)+'px)')	
+				$('#t2_t4').css('transform','translate(0px,'+(offset*0.16)+'px)')
+				
+				$('#t4').css('transform','translate(0px,'+(offset*0.6)+'px)')	
+				
+				
+				//处理底部空白 当滚动到最后一个元素时 表示文档下面的元素皆是偏移造成的空白 此时触发css 把滚动条定位在此处 不允许继续下滑 传值（dibu_t）给上方的滚动事件处理
+                var element = document.getElementById("dibu");
+                // 计算元素距离底部的距离
+                var distanceToBottom = document.documentElement.clientHeight - element.getBoundingClientRect().bottom;
+                //console.log(distanceToBottom)
+                if(distanceToBottom>0){
+                    //dibu_t = $("#dibu").offset().top-800;
+                    //console.log('ttt')
+                    //console.log(dibu_t)
+                    //console.log(distanceToBottom)
+                    var gundongval = -(offset);  //滚动偏移量
+                    dibu_t = gundongval-distanceToBottom;  //调节精度 处理滚动过快可能导致的失精
+                    //pd=1; //执行完毕 记录状态
+                }
+                
+                
+                
+                //品牌故事透明度效果
+                var element_t3 = document.getElementById("t3");
+                var distanceToBottom_3 = document.documentElement.clientHeight - element_t3.getBoundingClientRect().bottom;
+                if(distanceToBottom_3>0){
+                    //console.log('ttt')
+                    //console.log(t3_t1_opacity)
+                    if(t3_t1_opacity<1){
+                        t3_t1_opacity = 1
+                        $('#t3_t1').removeClass('opacity_0')
+                        $('#t3_t1').addClass('opacity_1')
+                        //console.log(t3_t1_opacity)
+                    }
+                    
+                }else{
+                    
+                    if(t3_t1_opacity>=1){
+                        t3_t1_opacity =0
+                        $('#t3_t1').removeClass('opacity_1')
+                        $('#t3_t1').addClass('opacity_0')
+                        //console.log(t3_t1_opacity)
+                    }
+                     
+                }
+                
+                
+                //
+                
+                var element_t4 = document.getElementById("t4_t1");
+                var distanceToBottom_4 = document.documentElement.clientHeight - element_t4.getBoundingClientRect().bottom;
+                if(distanceToBottom_3>0){
+                    if(t4_t1_opacity<1){
+                        t4_t1_opacity = 1
+                        $('.t4_t').removeClass('has_0')
+                        $('.t4_t').addClass('has_1')
+                        
+                        $('#t4_t4').removeClass('opacity_0')
+                        $('#t4_t4').addClass('opacity_1')
+                        //console.log(t4_t1_opacity)
+                    }
+                }else{
+                    
+                    if(t4_t1_opacity>=1){
+                        t4_t1_opacity =0
+                        $('.t4_t').removeClass('has_1')
+                        $('.t4_t').addClass('has_0')
+                        
+                        $('#t4_t4').removeClass('opacity_1')
+                        $('#t4_t4').addClass('opacity_0')
+                        //console.log(t4_t1_opacity)
+                    }
+                }
+                
+                
+                
+                
+                //导航条变化
+                if(offset <= '-'+0.1*w){
+                     $('#logo').removeClass('logo_y')
+                     $('#logo').addClass('logo_n')
+                    /*
+                    $('#logo').css('display','none')
+                    $('#tarb1').css('display','none')
+                    $('#tarb2').css('display','')*/
+                }else{
+                     $('#logo').removeClass('logo_n')
+                     $('#logo').addClass('logo_y')
+                    /*
+                    $('#logo').css('display','')
+                    $('#tarb1').css('display','')
+                    $('#tarb2').css('display','none')*/
+                }   
+                   
+                    /*
+                    const element = document.getElementById('t3');
+                    const rect = element.getBoundingClientRect();
+                    const bh = $('#t3').height();
+                    
+                    // 获取元素位置信息
+                    const top = rect.top; // 元素顶部距离视口顶部的距离
+                    const top_b = bh+top;
+                    if(offset <= '-800'){
+                        
+                        document.body.style.position = 'fixed';
+                        document.body.style.top = '800px';
+                    }else{
+                        document.body.style.position = '';
+                    }*/
+                    
+				// 在这里处理获取到的偏移量变化
+			});
+		});
+
+
+	}
+
+
+</script>
+
+
+<!-- 选项 2：Popper 和 Bootstrap 的 JS 插件各自独立 -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-Lge2E2XotzMiwH69/MXB72yLpwyENMiOKX8zS8Qo7LDCvaBIWGL+GlRQEKIpYR04" crossorigin="anonymous"></script>
+-->
+</body>
+</html>

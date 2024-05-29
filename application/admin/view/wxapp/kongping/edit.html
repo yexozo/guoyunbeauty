@@ -1,0 +1,58 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">推送留言</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-msg" class="form-control" rows="5" name="row[msg]" cols="50"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">发放奖励:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-awards" class="form-control selectpicker" name="row[awards]"> <!-- 强制输入 data-rule="required" -->
+                <option value="" name="awards" value="123" data-rule="required"></option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805542&alias=r09l2frb&sign=19fd058102af0d19213e47dd2bdc4daa&shopAutoEnter=1" name="awards" data-rule="required">社群打卡藿然精华正装</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805536&alias=w97rnpvq&sign=6227946fd17df2f4778cd409f93f57a9&shopAutoEnter=1" name="awards" data-rule="required">社群打卡私藏精华正装</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805531&alias=jcm4z9fv&sign=4d52fc60005bc061d94641b8672f5067&shopAutoEnter=1" name="awards" data-rule="required">社群打卡斛春精华正装</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805530&alias=18y2h1uw0&sign=e72e8a6710cd9685e515d4ddccd918fb&shopAutoEnter=1" name="awards" data-rule="required">社群打卡洁颜蜜118ml</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805519&alias=15ulourj1&sign=1ca3e1f6d7b950ef6cbeab457f121b75&shopAutoEnter=1" name="awards" data-rule="required">社群打卡斛春面膜1盒</option>
+
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805494&alias=er9b8lz4&sign=c74b253a2ab824bb2082479e3ede2440&shopAutoEnter=1" name="awards" data-rule="required">社群打卡斛春面膜2片</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805483&alias=l4tkppbe&sign=91b851c8c4e038d1afcf73842bdff990&shopAutoEnter=1" name="awards" data-rule="required">社群打卡藿然面膜1盒</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805474&alias=1dl4rwb7&sign=13b94581c2f0c8d3487d93630854ae70&shopAutoEnter=1" name="awards" data-rule="required">社群打卡藿然面膜2片</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805454&alias=1dq73tyan&sign=81594e93fdd740937d30c3c0e09a9700&shopAutoEnter=1" name="awards" data-rule="required">社群打卡私藏面膜1盒</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805406&alias=ddfbahp1&sign=a506e8943fd27b2cce584666ba768a5d&shopAutoEnter=1" name="awards" data-rule="required">社群打卡私藏面膜2片</option>
+
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805394&alias=ql91p004&sign=a51c61f94748a6078c54fc7f3d8315cb&shopAutoEnter=1" name="awards" data-rule="required">社群打卡洁颜蜜15ml</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805388&alias=v21mkrlw&sign=1d0d496a4c75d00c1b1798b01368307&shopAutoEnter=1" name="awards" data-rule="required">社群打卡斛春精华15ml</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805378&alias=19n0a0qr8&sign=32b493074c63ae542c277977fbfffc5b&shopAutoEnter=1" name="awards" data-rule="required">社群打卡私藏精华15ml</option>
+                <option value="pages/usercenter/promotion/promotion_detail?type=promocard&id=30805356&alias=2a1veqx5&sign=b410b3b5cc7e7b3850b38da76da217c9&shopAutoEnter=1" name="awards" data-rule="required">社群打卡藿然精华15ml</option>
+            </select>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+

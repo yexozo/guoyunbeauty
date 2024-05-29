@@ -1,0 +1,97 @@
+<?php
+    $con=mysqli_connect("127.0.0.1","beauty","123789","beauty");
+    //mysqli_select_db($db, 'order');  //假设建立连接时未指定数据库则选择使用的数据库，切换使用的数据库
+    if (mysqli_connect_errno($con))
+    {
+        echo "连接 MySQL 失败: " . mysqli_connect_error();
+    }
+    mysqli_query($con,"SET NAMES UTF8MB4");
+
+    //获取用户信息
+    $auserid = $row['id'];
+    $sql = 'select * from `bt_treasure_chest` where `id` = "'.$auserid.'"';
+    $query_1 = mysqli_query($con,$sql);
+    $res_1 = mysqli_fetch_array($query_1);
+
+    $active1 = '';
+    $active2 = '';
+    $active3 = '';
+
+    if($res_1['progress'] == '已打款'){
+        $active3 = 'active';
+    }else{
+        if($res_1['progress'] == '待审核'){
+            $active1 = 'active';
+        }else{
+            $active2 = 'active';
+        }
+    }
+
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Stepper with Connectors Demo</title>
+    <style>
+        .step-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 50%;
+            height: 60px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            margin-bottom: 30px;
+        }
+
+        .step::before {
+            content: "";
+            position: absolute;
+            top: -31px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 30px;
+            background-color: #ccc;
+        }
+
+        .step:first-child::before {
+            display: none;
+        }
+
+        .step.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .step span{
+            color: #919191;
+        }
+
+        .step.active span{
+            color: #dedede;
+        }
+    </style>
+</head>
+<body>
+<div class="step-container" style="margin-top: 30px;">
+    <div class="step <?= $active1 ?>">
+        <div>提交申请<br><span><?= $res_1['createtime'] ?></span></div>
+    </div>
+    <div class="step <?= $active2 ?>">
+        <div>审核中<br><span><?= $res_1['updatetime'] ?></span></div>
+    </div>
+    <div class="step <?= $active3 ?>">
+        <div>已打款<br><span><?= $res_1['paytime'] ?></span></div>
+    </div>
+</div>
+</body>

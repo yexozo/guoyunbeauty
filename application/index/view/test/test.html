@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <!-- 加载样式及META信息 -->
+    {include file="common/test" /}
+<style>
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="fixed-top" style="">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4" style="background: rgba(131,131,131,0.2)!important;">
+            <h5 class="text-white h4">GuoyunBeauty.</h5>
+            <span class="text-muted">guoyun guoyun guoyun guoyun</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark" style="background-color: transparent!important;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel" style="position: fixed;top:0;left: 0;width: 100%;">
+    <div class="carousel-inner">
+        <div id="c" class="carousel-item active">
+            <img src="__CDN__/assets/img/index/KV_inde_1.jpg" class="d-block w-100" alt="..." style="width: 100%;height: 100%;">
+            <img id="logo_1" src="__CDN__/assets/img/index/logo.png" class="" alt="..." style="position: absolute;top:4%;left:47%;width: 6%;">
+
+            <div id="index_body" style="width: 80%;position: absolute;left: 10%;display: flex;align-items: center;justify-content: center;">
+                <img id="body_img_1" src="__CDN__/assets/img/index/index_body_1.png" class="" alt="..." style="margin-top: 4%">
+            </div>
+
+            <img id="title_1" src="__CDN__/assets/img/index/title.png" class="" alt="..." style="position: absolute;bottom:3%;left:25%;width: 50%;">
+        </div>
+        <div class="carousel-item">
+            <img src="__CDN__/assets/img/index/KV_inde_2.jpg" class="d-block w-100" alt="..." style="width: 100%;height: 100%;">
+            <img src="__CDN__/assets/img/index/logo_2.png" class="" alt="..." style="position: absolute;top:4%;left:47%;width: 6%;">
+            <img src="__CDN__/assets/img/index/title_22.png" class="" alt="..." style="position: absolute;bottom:3%;left:10%;width: 80%;">
+        </div>
+        <div class="carousel-item" style="background-color: #c9b290;">
+            <img src="__CDN__/assets/img/index/logo_2.png" class="" alt="..." style="position: absolute;top:4%;left:47%;width: 6%;">
+            <div id="index_body_3" style="width: 80%;position: absolute;left: 10%;display: flex;align-items: center;justify-content: center;">
+                <img id="body_img_3" src="__CDN__/assets/img/index/index_body_3.jpg" class="" alt="..." style="margin-top: 4%">
+            </div>
+            <img id="title_3" src="__CDN__/assets/img/index/title_3.png" class="" alt="..." style="position: absolute;bottom:3%;left:25%;width: 50%;">
+        </div>
+    </div>
+
+</div>
+
+<!--域名备案信息-->
+<div id="beian" style="z-index: 99;position: relative;width: 100%;color: aliceblue;background:rgba(0,0,0,0.5);text-align: center;padding: 20px 10px;font-size: 1rem;">
+
+    <div>国韵健康服务热线：400-400-400 会员积分兑礼服务热线：400-400-400 广东国韵健康有限公司地址：广东省深圳市南山区侨城坊8栋9楼</div>
+    <div>粤A2-xxxxxxxxx号  粤公网安备xxxxxxxxxxx号</div>
+</div>
+
+
+
+<!-- JavaScript 文件是可选的。从以下两种建议中选择一个即可！ -->
+
+<!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script>
+
+    //网页刷新不定位到原来位置
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    }
+
+    var h = $(window).height()
+    //alert(h)
+    $('.carousel-item').css('height',h*1+'px')
+
+    var logo_t = $("#logo_1").offset().top;
+    var logo_h = $("#logo_1").height();
+    var logo_th = logo_t+logo_h;
+
+    var title_h = $("#title_1").height();
+
+    var body_h = h-logo_th-title_h-h*0.05;
+
+    $('#index_body').css('height',body_h*1+'px')
+    $('#index_body').css('top',logo_th*1+'px')
+    $('#body_img_1').css('height',body_h*1.35+'px')
+    //alert(body_h)
+
+    $('#index_body_3').css('height',body_h*1+'px')
+    $('#index_body_3').css('top',logo_th*1+'px')
+    $('#body_img_3').css('height',body_h*0.8+'px')
+
+    $('#beian').css('top',h*1+'px')
+
+    /*
+    $('#carouselExampleSlidesOnly').on('slide.bs.carousel', function () {
+
+    })*/
+
+
+</script>
+
+
+<!-- 选项 2：Popper 和 Bootstrap 的 JS 插件各自独立 -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-Lge2E2XotzMiwH69/MXB72yLpwyENMiOKX8zS8Qo7LDCvaBIWGL+GlRQEKIpYR04" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
